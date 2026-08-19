@@ -1,15 +1,6 @@
-# Capital Club Ledger MVP
+# Committee Investment Vehicle
 
-Capital Club Ledger is a Streamlit MVP for a private investment group. It supports members, historical onboarding, payment upload, secretary/checker receipting, unitisation, fund valuation, loans on reducing balance, withdrawals, investments and reports.
-
-## Files
-
-- `app.py` - Streamlit app
-- `requirements.txt` - Python dependencies
-- `schema.sql` - PostgreSQL/Supabase schema reference
-- `.streamlit/secrets.toml.example` - example secrets file
-- `sample_data/sample_members.xlsx` - sample member upload
-- `sample_data/sample_contributions.xlsx` - sample contribution upload
+A Streamlit MVP for an investment committee or private investment group. It supports onboarding, member contributions, M-Pesa/bank payment upload, maker-checker receipting, fund valuation, investment returns, loans, withdrawals and dashboard BI.
 
 ## Run locally
 
@@ -18,37 +9,20 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-By default, the app uses local SQLite: `capital_club_ledger.db`.
+## Publish free on Streamlit Community Cloud
 
-## Use Supabase/PostgreSQL for free online persistence
+1. Upload these files to your GitHub repository.
+2. Go to Streamlit Community Cloud.
+3. Create a new app.
+4. Select your GitHub repository, branch and `app.py`.
+5. Deploy.
 
-1. Create a Supabase project.
-2. Open SQL Editor and run `schema.sql` if you want to create tables manually.
-3. Copy the project database connection string.
-4. In Streamlit Community Cloud, add a secret named `DATABASE_URL`.
+## Optional Supabase setup
 
-Example `.streamlit/secrets.toml`:
+The app works locally or on Streamlit using SQLite for testing. For persistent online use, create a Supabase project and add this in Streamlit secrets:
 
 ```toml
 DATABASE_URL = "postgresql+psycopg2://USER:PASSWORD@HOST:5432/postgres"
 ```
 
-## Publish free on Streamlit Community Cloud
-
-1. Create a GitHub repository, for example `capital-club-ledger`.
-2. Upload all files in this folder to the repository.
-3. Go to Streamlit Community Cloud and create a new app.
-4. Select your GitHub repository, branch and `app.py` as the entry file.
-5. Add `DATABASE_URL` under advanced settings/secrets if using Supabase.
-6. Deploy the app.
-
-## Production cautions
-
-This is an MVP. Before using it for serious money operations, add:
-
-- Proper authentication
-- Supabase Row Level Security
-- Document upload storage
-- Database backups
-- Stronger approval workflows
-- Regulatory/legal review if lending expands beyond a private group
+Before live use with real money, add proper authentication, Supabase Row Level Security, document storage, backups and stronger approval workflows.
