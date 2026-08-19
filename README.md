@@ -43,3 +43,21 @@ Use:
 - `M001 - Peter Muia`
 
 M001 has the Administrator role in the baseline SQL.
+
+
+## If you get a UUID/BIGINT loan error
+
+Run this first, then rerun the baseline migration:
+
+`database/fix_loan_uuid_bigint_mismatch.sql`
+
+This renames old UUID loan tables to backup names and recreates the working BIGINT loan tables. It does not delete members or contributions.
+
+
+## If you get ERROR 42P10 ON CONFLICT
+
+Run:
+
+`database/fix_on_conflict_42p10.sql`
+
+Then use the v4 `migration_chamayetu_baseline.sql`, which no longer depends on `ON CONFLICT` for seed rows.
