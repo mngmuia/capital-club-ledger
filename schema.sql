@@ -1,3 +1,1 @@
--- Committee Investment Vehicle simplified schema reference.
--- The Streamlit app auto-creates these tables for testing.
--- For Supabase production, improve this with auth.users linkage and row level security.
+-- Committee Investment Vehicle simplified schema reference. The app auto-creates tables for MVP testing.
